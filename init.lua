@@ -89,7 +89,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -416,7 +416,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ca', ":Lspsaga code_action<CR>", '[C]ode [A]ction')
 
   -- nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap("gp", ":Lspsaga peek_definition<CR>", "[gP]eek [D]efinition")
+  nmap('gp', ":Lspsaga peek_definition<CR>", "[gP]eek [D]efinition")
   nmap('gd', ":Lspsaga goto_definition<CR>", '[G]oto [D]efinition')
   nmap('gh', ":Lspsaga lsp_finder<CR>", '[G]oto [H]elp')
 
@@ -467,6 +467,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
+  tailwindcss = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -501,7 +502,6 @@ mason_lspconfig.setup_handlers {
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
-local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
 local luasnip = require 'luasnip'
 local lspkind = require 'lspkind'
 
@@ -558,10 +558,6 @@ cmp.setup {
     })
   }
 }
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
-)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
