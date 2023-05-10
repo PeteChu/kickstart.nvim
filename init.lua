@@ -200,6 +200,7 @@ require('lazy').setup({
         lightbulb = {
           enable = true
         },
+        request_timeout = 5000,
       }
     end,
   },
@@ -555,6 +556,10 @@ cmp.setup {
     format = lspkind.cmp_format({
       maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
       ellipsis_char = "...",
+      before = function(entry, vim_item)
+        vim_item = require('tailwindcss-colorizer-cmp').formatter(entry, vim_item)
+        return vim_item
+      end
     })
   }
 }
