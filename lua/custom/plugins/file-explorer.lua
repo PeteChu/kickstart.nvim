@@ -11,7 +11,7 @@ return {
         ntree.setup({
             close_if_last_window = true,
             window = {
-                width = 30,
+                width = 40,
                 mappings = {
                     ["o"] = "open",
                     ['<S-l>'] = "open",
