@@ -13,6 +13,8 @@ return {
   'lukas-reineke/cmp-rg',
   'onsails/diaglist.nvim',
   'Bekaboo/deadcolumn.nvim',
+  'f-person/git-blame.nvim',
+  'kevinhwang91/nvim-bqf',
   config = function()
     require('diaglist').init()
   end
