@@ -22,7 +22,19 @@ return {
                 }
             },
             filesystem = {
-                follow_current_file = true
+                follow_current_file = true,
+                filtered_items = {
+                    visible = true,
+                    show_hidden_count = true,
+                    hide_dotfiles = false,
+                    hide_gitignored = true,
+                    never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+                        ".git",
+                        ".DS_Store",
+                        "thumbs.db",
+                        "node_modules",
+                    }
+                }
             },
             source_selector = {
                 winbar = true

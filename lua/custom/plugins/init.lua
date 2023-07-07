@@ -10,7 +10,6 @@ return {
   'ThePrimeagen/vim-be-good',
   'stevearc/dressing.nvim',
   "onsails/lspkind.nvim",
-  'lukas-reineke/cmp-rg',
   'onsails/diaglist.nvim',
   'Bekaboo/deadcolumn.nvim',
   'f-person/git-blame.nvim',

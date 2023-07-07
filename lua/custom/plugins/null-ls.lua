@@ -11,7 +11,7 @@ return {
     null_ls.setup({
       sources = {
         formatting.prettierd,
-        diagnostics.eslint_d
+        diagnostics.eslint_d,
       },
       on_attach = function(current_client, bufnr)
         if current_client.supports_method("textDocument/formatting") then

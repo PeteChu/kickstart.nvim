@@ -89,7 +89,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim',       opts = {} },
+      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -99,8 +99,16 @@ require('lazy').setup({
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path' },
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'saadparwaiz1/cmp_luasnip',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+    },
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
   },
 
   -- Useful plugin to show you pending keybinds.
@@ -550,7 +558,6 @@ cmp.setup {
     { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
-    { name = 'rg' }
   }),
   formatting = {
     format = lspkind.cmp_format({
