@@ -1,5 +1,6 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -11,7 +12,7 @@ return {
         ntree.setup({
             close_if_last_window = true,
             window = {
-                width = 40,
+                enable_git_status = true,
                 mappings = {
                     ["o"] = "open",
                     ['<S-l>'] = "open",
@@ -22,7 +23,9 @@ return {
                 }
             },
             filesystem = {
-                follow_current_file = true,
+                follow_current_file = {
+                    enabled = true
+                },
                 filtered_items = {
                     visible = true,
                     show_hidden_count = true,

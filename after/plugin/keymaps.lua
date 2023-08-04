@@ -10,7 +10,7 @@ function keymap(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-vim.cmd [[command ClearBufferExceptCurrent silent! execute "%bd|e#|bd#"]]
+vim.cmd [[command ClearBufferExceptCurrent silent! execute "%bd|e#|bd#|Neotree"]]
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -24,8 +24,7 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- File Explorer
--- keymap('n', '<leader>n', ":NvimTreeToggle<cr>", { silent = true, noremap = true, desc = "Toggle [N]vimtree" })
-keymap('n', '<leader>n', ":NeoTreeShowToggle<cr>", { silent = true, noremap = true, desc = "Toggle [N]eoTree" })
+keymap('n', '<leader>n', ":Neotree toggle<cr>", { silent = true, noremap = true, desc = "Toggle [N]eoTree" })
 
 -- UndoTree
 keymap('n', '<leader>u', ":UndotreeToggle<cr>", { desc = "Toggle [U]ndo tree" })
