@@ -11,9 +11,10 @@ return {
   'stevearc/dressing.nvim',
   "onsails/lspkind.nvim",
   'onsails/diaglist.nvim',
-  'Bekaboo/deadcolumn.nvim',
+  -- 'Bekaboo/deadcolumn.nvim',
   'f-person/git-blame.nvim',
   'kevinhwang91/nvim-bqf',
+  'ryanoasis/vim-devicons',
   config = function()
     require('diaglist').init()
   end
