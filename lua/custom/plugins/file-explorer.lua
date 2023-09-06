@@ -7,8 +7,13 @@ return {
         "MunifTanjim/nui.nvim",
     },
     config = function()
-        vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
         local ntree = require 'neo-tree'
+
+        vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+        vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+        vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+        vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
+
         ntree.setup({
             close_if_last_window = true,
             window = {
@@ -17,9 +22,9 @@ return {
                     ["o"] = "open",
                     ['<S-l>'] = "open",
                     ["F"] = "clear_filter",
-                    ['e'] = function() vim.api.nvim_command('Neotree focus filesystem left') end,
-                    ['b'] = function() vim.api.nvim_command('Neotree focus buffers left') end,
-                    ['g'] = function() vim.api.nvim_command('Neotree focus git_status left') end,
+                    -- ['e'] = function() vim.api.nvim_command('Neotree focus filesystem left') end,
+                    -- ['b'] = function() vim.api.nvim_command('Neotree focus buffers left') end,
+                    -- ['g'] = function() vim.api.nvim_command('Neotree focus git_status left') end,
                 }
             },
             filesystem = {

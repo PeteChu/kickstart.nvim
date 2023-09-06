@@ -10,3 +10,7 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 
 vim.opt.swapfile = false
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false

@@ -4,7 +4,7 @@
 -- See the kickstart.nvim README for more information
 
 return {
-  'fatih/vim-go',
+  -- 'fatih/vim-go',
   'famiu/bufdelete.nvim',
   'ThePrimeagen/harpoon',
   -- 'ThePrimeagen/vim-be-good',
