@@ -4,7 +4,6 @@
 -- See the kickstart.nvim README for more information
 
 return {
-  -- 'fatih/vim-go',
   'famiu/bufdelete.nvim',
   'ThePrimeagen/harpoon',
   -- 'ThePrimeagen/vim-be-good',
@@ -15,6 +14,7 @@ return {
   -- 'f-person/git-blame.nvim',
   'kevinhwang91/nvim-bqf',
   'ryanoasis/vim-devicons',
+  -- 'nathom/filetype.nvim',
   config = function()
     require('diaglist').init()
   end

@@ -11,7 +11,15 @@ return {
     null_ls.setup({
       sources = {
         formatting.prettierd,
-        diagnostics.eslint_d,
+        formatting.gofumpt,
+        formatting.goimports_reviser,
+        formatting.golines,
+        diagnostics.eslint_d.with({ -- js/ts linter
+          -- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
+          condition = function(utils)
+            return utils.root_has_file(".eslintrc.json") -- change file extension if you use something else
+          end,
+        }),
       },
       on_attach = function(current_client, bufnr)
         if current_client.supports_method("textDocument/formatting") then

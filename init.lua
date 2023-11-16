@@ -290,6 +290,7 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
+    file_ignore_patterns = { "node_modules" },
   },
 }
 
@@ -415,7 +416,7 @@ local on_attach = function(_, bufnr)
   -- nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gp', ":Lspsaga peek_definition<CR>", "[gP]eek [D]efinition")
   nmap('gd', ":Lspsaga goto_definition<CR>", '[G]oto [D]efinition')
-  nmap('gh', ":Lspsaga lsp_finder<CR>", '[G]oto [H]elp')
+  -- nmap('gh', ":Lspsaga lsp_finder<CR>", '[G]oto [H]elp')
 
 
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -441,7 +442,8 @@ local on_attach = function(_, bufnr)
   end, '[W]orkspace [L]ist Folders')
 
   -- Toggle outline
-  nmap("<leader>o", ":Lspsaga outline<CR>", '[O]utline')
+  -- nmap("<leader>o", ":Lspsaga outline<CR>", '[O]utline')
+  nmap("<leader>o", ":Navbuddy<CR>", '[O]utline')
 
   -- Show cursor diagnostic
   nmap("<S-f>", ":Lspsaga show_line_diagnostics<CR>", 'Show cursor diagnostics')

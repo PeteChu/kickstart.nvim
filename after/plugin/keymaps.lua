@@ -1,14 +1,6 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
-
-function keymap(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local keymap = require('utils.utils').keymap
 
 vim.cmd [[command ClearBufferExceptCurrent silent! execute "%bd|e#|bd#|Neotree"]]
 
@@ -74,7 +66,7 @@ keymap("n", "<leader>bw", ":Bwipeout!<CR>", { desc = "[B]uffer [W]ipeout" })
 keymap("n", "<leader>be", ":ClearBufferExceptCurrent<CR>", { silent = true, desc = "[B]uffer Delete [E]xcept" })
 
 -- Vim Be Good
-keymap("n", "<leader>vbg", ":VimBeGood<CR>", { desc = "[V]im [B]e [G]ood" })
+-- keymap("n", "<leader>vbg", ":VimBeGood<CR>", { desc = "[V]im [B]e [G]ood" })
 
 -- Git keymap
 keymap("n", "<leader>gs", ":Telescope git_status<CR>", { desc = "[G]it [S]tatus" })
@@ -83,3 +75,8 @@ keymap("n", "<leader>gD", "<C-W><C-O><CR>", { desc = "[G]it [D]iff Close" })
 keymap("n", "<leader>gh", ":diffget //2<CR>", { desc = "[G]it [D]iff Get [H]Left" })
 keymap("n", "<leader>gl", ":diffget //3<CR>", { desc = "[G]it [D]iff Get [L]Right" })
 keymap("n", "<leader>gp", ":diffput 1<CR>", { desc = "[G]it [D]iff [P]ut" })
+
+-- Files
+keymap("n", "QQ", ":q!<enter>", { noremap = false })
+keymap("n", "WW", ":w!<enter>", { noremap = false })
+keymap("n", "WQ", ":wq<enter>", { noremap = false })

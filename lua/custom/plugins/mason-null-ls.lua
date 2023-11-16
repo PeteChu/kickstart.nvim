@@ -11,6 +11,9 @@ return {
       ensure_installed = {
         "prettierd", -- ts/js formatter
         "eslint_d",  -- ts/js linter
+        "gofumpt",
+        "goimports-reviser",
+        "golines"
       },
       -- auto-install configured formatters & linters (with null-ls)
       automatic_installation = true,

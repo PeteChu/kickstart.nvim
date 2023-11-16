@@ -5,6 +5,26 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
         "MunifTanjim/nui.nvim",
+        {
+            's1n7ax/nvim-window-picker',
+            version = '2.*',
+            config = function()
+                require 'window-picker'.setup({
+                    hint = 'floating-big-letter',
+                    filter_rules = {
+                        include_current_win = false,
+                        autoselect_one = true,
+                        -- filter using buffer options
+                        bo = {
+                            -- if the file type is one of following, the window will be ignored
+                            filetype = { 'neo-tree', "neo-tree-popup", "notify" },
+                            -- if the buffer type is one of following, the window will be ignored
+                            buftype = { 'terminal', "quickfix" },
+                        },
+                    },
+                })
+            end,
+        }
     },
     config = function()
         local ntree = require 'neo-tree'
@@ -22,6 +42,8 @@ return {
                     ["o"] = "open",
                     ['<S-l>'] = "open",
                     ["F"] = "clear_filter",
+                    ["S"] = "split_with_window_picker",
+                    ["s"] = "vsplit_with_window_picker",
                     -- ['e'] = function() vim.api.nvim_command('Neotree focus filesystem left') end,
                     -- ['b'] = function() vim.api.nvim_command('Neotree focus buffers left') end,
                     -- ['g'] = function() vim.api.nvim_command('Neotree focus git_status left') end,
